@@ -1,0 +1,31 @@
+<h3>Create task</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <!-- form when submition is activated create a new task with informations submited in ngModel-->
+  <form (ngSubmit)="onSubmit()">
+
+    <!-- I know this solution is not great, cause of this id is enter by a physical person. 
+      If i had used a data base, i would have done an auto increment on id and add controls and triggers on it-->
+    <div class="form-group">
+      <label for="name">Task number</label>
+      <input type="text" class="form-control" id="id" required [(ngModel)]="task.id" name="title">
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Title</label>
+      <input type="text" class="form-control" id="title" required [(ngModel)]="task.title" name="title">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Note</label>
+      <input type="text" class="form-control" id="note" required [(ngModel)]="task.note" name="note">
+    </div>
+    <!-- go to create-task.component.ts to see the submition-->
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newtask()">Add</button> -->
+</div>

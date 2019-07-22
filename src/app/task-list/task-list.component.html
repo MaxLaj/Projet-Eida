@@ -1,0 +1,34 @@
+<!-- Main page -->
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Tasks List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Note</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Get all task -->
+          <!-- Tasks stocked in the Json file from data/db.json-->
+          <tr *ngFor="let task of tasks">
+            <td>{{task.id}}</td>
+            <td>{{task.title}}</td>
+            <td>{{task.note}}</td>
+            <td>
+                <button (click)="goToUpdate(task.id)" class="btn btn-warning">Update</button>
+                <button (click)="deleteTask(task.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+                <button (click)="taskDetails(task.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                <!-- these actions on click are defined in task.service.ts | We put the id of a task in param -->
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+</div>
